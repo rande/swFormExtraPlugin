@@ -22,3 +22,11 @@
 * swValidatorTextYaml : validate yaml text input
 * swValidatorTrilean : validator for swWidgetFormTrilean input
 
+# swFormHelper
+
+    [php]
+    swToolboxFormHelper::resetFormLabels($this, array(
+      'prefix'           =>'label_',
+      'catalogue'        =>'school',
+      'mandatory_format' => "%s <sup>*</sup>"
+    ));
