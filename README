@@ -1,1 +1,24 @@
-Provide widgets ...
+# swFormExtraPlugin
+
+## Widgets
+
+* swWidgetFormDoctrineInputCheckboxGroup : represents a group of checkbox HTML tag for a model where you can select multiple values.
+* swWidgetFormDoctrineSelectNestedSet : display a select with the NestedSet structure
+* swWidgetFormDoctrineSelectNestedSetPosition :  display a select with the NestedSet structure and a position options. Some portions are inspired from the isicsPropelNestedSetPositionPlugin
+* swWidgetFormGMapAddress : represents a gmap address widget
+* swWidgetFormInputCheckboxGroup : represents a group of checkbox HTML tag for a array/callback where you can select multiple values.
+* swWidgetFormJQueryMultiAutocompleter : represents an autocompleter input widget rendered by JQuery. This autocompleter can be use to display multiple values.
+* swWidgetFormRadio : represents one radio HTML tag
+* swWidgetFormTrilean : represents a select HTML tag : yes, no and null
+* swWidgetFormjQueryStarRating : a star rating widget
+
+## Validators
+
+* swValidatorDoctrineNestedSetValidator : validator for swWidgetFormDoctrineInputCheckboxGroup input
+* swValidatorDoctrineNestedSetValidatorPosition : validator for swWidgetFormDoctrineSelectNestedSetPosition input
+* swValidatorGMapAddress : validator for swValidatorGMapAddress input
+* swValidatorStupidCaptcha : stupid captcha validator input
+* swValidatorText : escape any non text input
+* swValidatorTextYaml : validate yaml text input
+* swValidatorTrilean : validator for swWidgetFormTrilean input
+

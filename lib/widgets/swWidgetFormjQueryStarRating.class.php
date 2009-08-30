@@ -9,7 +9,7 @@
  */
 
 /**
- * sfWidgetFormRadio represents one radio HTML tag.
+ * sfWidgetFormRadio represents a star rating widget.
  *
  * @package    swFormExtraPlugin
  * @subpackage widget

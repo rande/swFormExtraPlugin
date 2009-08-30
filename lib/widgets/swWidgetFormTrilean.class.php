@@ -10,7 +10,7 @@
 
 
 /**
- * sfWidgetFormRadio represents one radio HTML tag.
+ * sfWidgetFormRadio represents a select HTML tag : yes, no and null.
  *
  * @package    swFormExtraPlugin
  * @subpackage widget
