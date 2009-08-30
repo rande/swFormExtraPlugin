@@ -13,7 +13,7 @@
  * swWidgetFormInputCheckboxGroup represents a group of checkbox HTML tag 
  * for a array/callback where you can select multiple values.
  *
- * @package    swToolboxPlugin
+ * @package    swFormExtraPlugin
  * @subpackage widgets
  * @author     Thomas Rabaix <thomas.rabaix@soleoweb.com>
  * @version    SVN: $Id$

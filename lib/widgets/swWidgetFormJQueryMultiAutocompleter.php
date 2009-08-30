@@ -22,7 +22,7 @@
  *
  * If you use symfony 1.2, it can be done automatically for you.
  *
- * @package    swToolboxPlugin
+ * @package    swFormExtraPlugin
  * @subpackage widgets
  * @author     Thomas Rabaix <thomas.rabaix@soleoweb.com>
  * @version    SVN: $Id$

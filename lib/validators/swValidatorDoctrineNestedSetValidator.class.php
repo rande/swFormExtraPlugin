@@ -14,8 +14,6 @@
  * Validate the form
  * 
  * @author Thomas Rabaix <thomas.rabaix@gmail.com>
- * @license     http://www.opensource.org/licenses/lgpl-license.php LGPL
- * @link        www.soleoweb.com
  * 
  * SVN : $Id$
  **/

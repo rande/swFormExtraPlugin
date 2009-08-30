@@ -10,7 +10,7 @@
 
 /**
  *
- * @package    swToolbox
+ * @package    swFormExtraPlugin
  * @subpackage form 
  * @author     Thomas Rabaix <thomas.rabaix@soleoweb.com>
  * @version    SVN: $Id$

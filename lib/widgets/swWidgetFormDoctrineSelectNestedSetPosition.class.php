@@ -15,8 +15,6 @@
  *  Some portions are inspired from the isicsPropelNestedSetPositionPlugin
  * 
  * @author Thomas Rabaix <thomas.rabaix@soleoweb.com>
- * @license     http://www.opensource.org/licenses/lgpl-license.php LGPL
- * @link        www.soleoweb.com
  *
  * SVN : $Id$
  */

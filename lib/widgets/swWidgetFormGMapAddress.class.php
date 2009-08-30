@@ -11,7 +11,7 @@
 /**
  * swWidgetFormGMapAddress represents a gmap address widget
  *
- * @package    swToolboxPlugin
+ * @package    swFormExtraPlugin
  * @subpackage widget
  * @author     Thomas Rabaix <thomas.rabaix@soleoweb.com>
  * @version    SVN: $Id$

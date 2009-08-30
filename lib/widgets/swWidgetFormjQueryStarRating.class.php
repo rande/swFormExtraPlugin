@@ -11,9 +11,9 @@
 /**
  * sfWidgetFormRadio represents one radio HTML tag.
  *
- * @package    symfony
+ * @package    swFormExtraPlugin
  * @subpackage widget
- * @author    Thomas Rabaix <thomas.rabaix@soleoweb.com>
+ * @author     Thomas Rabaix <thomas.rabaix@soleoweb.com>
  * @version    SVN: $Id$
  */
 class swWidgetFormjQueryStarRating extends sfWidgetFormSelectRadio

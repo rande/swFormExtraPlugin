@@ -14,8 +14,6 @@
  * Make sure the input is only text : a-Z, 0-1, "\n"
  * 
  * @author Thomas Rabaix <thomas.rabaix@gmail.com>
- * @license     http://www.opensource.org/licenses/lgpl-license.php LGPL
- * @link        www.soleoweb.com
  * 
  * SVN : $Id$
  **/
