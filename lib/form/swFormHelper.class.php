@@ -62,6 +62,7 @@ class swFormHelper
   /**
    * Reset the form label
    *
+   * @return array $options used in the reset
    */
   static public function resetFormLabels(sfForm $form, array $options = array())
   {
@@ -77,7 +78,8 @@ class swFormHelper
     $options['error_message_catalogue'] = isset($options['error_message_catalogue']) ? $options['error_message_catalogue'] : sfConfig::get('app_swToolbox_form_error_message_catalogue', null);
     $options['error_message_format']    = isset($options['error_message_format']) ? $options['error_message_format'] : sfConfig::get('app_swToolbox_form_error_message_format', '%s');
 
-
+    $form->setOption('_sw_reset_options', $options);
+    
     // define translation (where the magic runs)
     $callable = sfWidgetFormSchemaFormatter::getTranslationCallable();
 
@@ -90,6 +92,8 @@ class swFormHelper
     $callable = sfWidgetFormSchemaFormatter::getTranslationCallable();
     
     self::resetSchemaLabels($form->getWidgetSchema(), $form->getValidatorSchema(), $options);
+
+    return $options;
   }
   
   static private function resetSchemaLabels(sfWidgetFormSchema $widget_schema, sfValidatorSchema $validator_schema, array $options)
