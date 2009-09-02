@@ -30,7 +30,7 @@ This method have a lot of feature :
 * reset the label translation
 * define the mandatory_format (optional)
 * define the error format (optional)
-* secure the string input by using a middle class to avoid XSS.
+* secure the string input by using a middle class to avoid XSS. (optional)
 
 Inside a form :
 
