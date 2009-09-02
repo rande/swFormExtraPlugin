@@ -22,11 +22,57 @@
 * swValidatorTextYaml : validate yaml text input
 * swValidatorTrilean : validator for swWidgetFormTrilean input
 
-# swFormHelper
+
+## swFormHelper::resetFormLabels
+
+This method have a lot of feature :
+
+* reset the label translation
+* define the mandatory_format (optional)
+* define the error format (optional)
+* secure the string input by using a middle class to avoid XSS.
+
+Inside a form :
 
     [php]
-    swToolboxFormHelper::resetFormLabels($this, array(
-      'prefix'           =>'label_',
-      'catalogue'        =>'school',
-      'mandatory_format' => "%s <sup>*</sup>"
+    swToolboxFormHelper::resetFormLabels(sfForm $this, array(
+      'prefix'                  => 'label_',
+      'catalogue'               => 'catalogue',
+      'mandatory_format'        => "%s <sup>*</sup>",
+
+      'error_message_prefix'    => 'error_message_',
+      'error_message_catalogue' => 'global_error_messages',
+      'error_message_format'    => '<span class="error">%s</span>',
+
+      'update_validator_string' => true | false
+      'validator_string_class'  => 'swValidatorText'
     ));
+
+Some of the settings can be set globally in the app.yml
+
+    [yml]
+    all:
+      swToolbox:
+        form_mandatory_format: "%s <sup>*</sup>"
+        form_error_message_prefix: "error_message_"
+        form_error_message_catalogue: "error_messages"
+        form_update_validator_string: on
+        validator_string_class: swValidatorText
+
+
+Sample with parameters defined in the app.yml file. This allow to easily reuse
+your form inside a plugin.
+
+    [php]
+    class DemoForm extends BaseDemoForm
+    {
+
+      public function configure()
+      {
+
+        // ... do other stuff
+        swToolboxFormHelper::resetFormLabels($this, array(
+          'catalogue'   =>'catalogue',
+        ));
+      }
+    }

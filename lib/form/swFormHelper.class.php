@@ -78,6 +78,9 @@ class swFormHelper
     $options['error_message_catalogue'] = isset($options['error_message_catalogue']) ? $options['error_message_catalogue'] : sfConfig::get('app_swToolbox_form_error_message_catalogue', null);
     $options['error_message_format']    = isset($options['error_message_format']) ? $options['error_message_format'] : sfConfig::get('app_swToolbox_form_error_message_format', '%s');
 
+    $options['update_validator_string'] = isset($options['update_validator_string']) ? $options['update_validator_string'] : sfConfig::get('app_swToolbox_form_update_validator_string', false);
+    $options['validator_string_class']  = isset($options['validator_string_class']) ? $options['validator_string_class'] : sfConfig::get('app_swToolbox_form_validator_string_class', 'swValidatorText');
+    
     $form->setOption('_sw_reset_options', $options);
     
     // define translation (where the magic runs)
@@ -136,6 +139,18 @@ class swFormHelper
         }
       }
 
+      // do we need to escape the string validator ?
+      if($options['update_validator_string'])
+      {
+        if( $validator_schema[$name] instanceof sfValidatorString)
+        {
+          $secure_string_validator = new $options['validator_string_class'];
+          $secure_validator        = new swValidatorSecureForm($secure_string_validator, $validator_schema[$name]);
+
+          $validator_schema[$name] = $secure_validator;
+        }
+      }
+      
       if($child_widget_schema instanceof sfWidgetFormSchema)
       {
         self::resetSchemaLabels($child_widget_schema, $validator_schema[$name], $options);
