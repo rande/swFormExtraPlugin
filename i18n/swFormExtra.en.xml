@@ -30,20 +30,6 @@
       </trans-unit>
     </body>
     
-    <!-- Notice messages -->
-    <trans-unit id="1">
-      <source>notice_your_change_has_been_saved</source>
-      <target>Your changes has been saved</target>
-    </trans-unit>
-    <trans-unit id="1">
-      <source>notice_an_error_occurred_while_saving</source>
-      <target>An error occured while saving !</target>
-    </trans-unit>
-    <trans-unit id="1">
-      <source>notice_element_deleted</source>
-      <target>Element deleted !</target>
-    </trans-unit>
-    
     <!-- Trilean Selector -->
     <trans-unit id="1">
       <source>label_no</source>
