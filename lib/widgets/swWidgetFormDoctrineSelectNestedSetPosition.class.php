@@ -50,7 +50,7 @@ class swWidgetFormDoctrineSelectNestedSetPosition extends sfWidgetFormSelect
     $this->addOption('add_empty', false);
     $this->addOption('name_method', '__toString');
     $this->addOption('prefix', '-');
-    $this->addOption('catalogue', 'swToolbox');
+    $this->addOption('catalogue', 'swFormExtra');
 
     $this->addOption('default_method', 'insertAsLastChildOf');
     $this->addOption('default_related_node', null);

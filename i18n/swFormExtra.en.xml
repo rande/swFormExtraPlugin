@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<xliff version="1.0">
+  <file orginal="global" source-language="en_EN" datatype="plaintext">
+    <body>
+    
+      <!-- swWidgetFormDoctrineSelectNestedSetPosition -->
+      <trans-unit id="1">
+        <source>label_first_child_of</source>
+        <target>First child of</target>
+      </trans-unit>
+      <trans-unit id="1">
+        <source>label_last_child_of</source>
+        <target>Last child of</target>
+      </trans-unit>
+      <trans-unit id="1">
+        <source>label_previous_sibling_of</source>
+        <target>Previous sibling of</target>
+      </trans-unit>
+      <trans-unit id="1">
+        <source>label_next_sibling_of</source>
+        <target>Next sibling of</target>
+      </trans-unit>
+      <trans-unit id="1">
+        <source>label_parent_of</source>
+        <target>Parent of</target>
+      </trans-unit>
+      <trans-unit id="1">
+        <source>label_change_position</source>
+        <target>Change position</target>
+      </trans-unit>
+    </body>
+    
+    <!-- Notice messages -->
+    <trans-unit id="1">
+      <source>notice_your_change_has_been_saved</source>
+      <target>Your changes has been saved</target>
+    </trans-unit>
+    <trans-unit id="1">
+      <source>notice_an_error_occurred_while_saving</source>
+      <target>An error occured while saving !</target>
+    </trans-unit>
+    <trans-unit id="1">
+      <source>notice_element_deleted</source>
+      <target>Element deleted !</target>
+    </trans-unit>
+    
+    <!-- Trilean Selector -->
+    <trans-unit id="1">
+      <source>label_no</source>
+      <target>No</target>
+    </trans-unit>
+    <trans-unit id="1">
+      <source>label_yes</source>
+      <target>Yes</target>
+    </trans-unit>
+    <trans-unit id="1">
+      <source>label_not_defined</source>
+      <target>Not defined</target>
+    </trans-unit>
+
+    
+  </file>
+</xliff>

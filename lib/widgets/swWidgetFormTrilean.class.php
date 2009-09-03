@@ -27,7 +27,7 @@ class swWidgetFormTrilean extends sfWidgetFormChoice
   public function __construct($options = array(), $attributes = array())
   {
     
-    $catalogue = isset($options['catalogue']) ? $options['catalogue'] : 'swToolbox';
+    $catalogue = isset($options['catalogue']) ? $options['catalogue'] : 'swFormExtra';
 
     $choices = array(
       0 => __('label_no', null, $catalogue),
