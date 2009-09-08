@@ -145,6 +145,11 @@ class swValidatorSecureForm extends sfValidatorBase
   public function setOption($name, $value)
   {
 
+    if($name == 'required')
+    {
+      $this->setOption($name, $value);
+    }
+    
     $this->original_validator->setOption($name, $value);
   }
 
