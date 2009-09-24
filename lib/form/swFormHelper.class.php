@@ -130,10 +130,13 @@ class swFormHelper
 
         foreach($messages as $error_code => $message)
         {
-
-          $message = $options['error_message_prefix'].strtolower(str_replace(array(',', "\"", "(", ")", ' ', '.'), array('_', "",  "_", "_",'_',''),$message));
-
-          $form_error_message = new swFormErrorMessage($message, $options['error_message_catalogue'], $options['error_message_format']);
+          $form_error_message = $message;
+          
+          if(!is_object($message))
+          {
+           $message = $options['error_message_prefix'].strtolower(str_replace(array(',', "\"", "(", ")", ' ', '.'), array('_', "",  "_","_",'_',''),$message));
+           $form_error_message = new swFormErrorMessage($message, $options['error_message_catalogue'], $options['error_message_format']);
+          }
 
           $validator_schema[$name]->addMessage($error_code, $form_error_message);
         }

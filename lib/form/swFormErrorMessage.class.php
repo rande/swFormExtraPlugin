@@ -23,12 +23,16 @@ class swFormErrorMessage extends swFormTranslableElement
 
     $callable = sfWidgetFormSchemaFormatter::getTranslationCallable();
 
-    if (!is_callable($callable) && !$callable instanceof sfCallable)
+    if (is_callable($callable) || ($callable instanceof sfCallable && $callable->getCallable()))
     {
 
-      return sprintf($this->format, $this->label);
+      return sprintf($this->format,
+        $callable instanceof sfCallable ?
+        $callable->call($this->label, null, $this->catalogue) :
+        call_user_func($callable, $this->label, null, $this->catalogue)
+      );
     }
 
-    return sprintf($this->format, $callable instanceof sfCallable ? $callable->call($this->label, null, $this->catalogue) : call_user_func($callback, $this->label, null, $this->catalogue));
+    return sprintf($this->format, $this->label);
   }
 }
