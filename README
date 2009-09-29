@@ -35,7 +35,7 @@ This method have a lot of feature :
 Inside a form :
 
     [php]
-    swToolboxFormHelper::resetFormLabels(sfForm $this, array(
+    swFormHelper::resetFormLabels(sfForm $this, array(
       'prefix'                  => 'label_',
       'catalogue'               => 'catalogue',
       'mandatory_format'        => "%s <sup>*</sup>",
@@ -71,7 +71,7 @@ your form inside a plugin.
       {
 
         // ... do other stuff
-        swToolboxFormHelper::resetFormLabels($this, array(
+        swFormHelper::resetFormLabels($this, array(
           'catalogue'   =>'catalogue',
         ));
       }
