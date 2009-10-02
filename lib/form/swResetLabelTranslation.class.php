@@ -17,8 +17,6 @@
  */
 class swResetLabelTranslation extends sfCallable
 {
-  static
-    $callback;
     
   public function __construct($callable)
   {
@@ -26,8 +24,8 @@ class swResetLabelTranslation extends sfCallable
     {
       throw new sfException('callable cannot be an instance of swResetLabelTranslation');
     }
-    
-    self::$callback = $callable;
+
+    $this->callable = $callable; 
   }
   
   /**
@@ -65,13 +63,17 @@ class swResetLabelTranslation extends sfCallable
       $catalogue = $subject->getCatalogue();
     }
         
-    if (!is_callable(self::$callback))
+    if (!is_callable($this->callable))
     {
 
       return sprintf($format, $subject); 
     }
 
-    return sprintf($format, self::$callback instanceof sfCallable ? self::$callback->call($subject, $parameters, $catalogue) : call_user_func(self::$callback, $subject, $parameters, $catalogue));
+    return sprintf($format,
+      $this->callable instanceof sfCallable ?
+      $this->callable->call($subject, $parameters, $catalogue) :
+      call_user_func($this->callable, $subject, $parameters, $catalogue)
+    );
   }
   
 }
