@@ -21,7 +21,7 @@
 * swValidatorText : escape any non text input
 * swValidatorTextYaml : validate yaml text input
 * swValidatorTrilean : validator for swWidgetFormTrilean input
-
+* swValidatorHtmlPurifier : clean html with HTML Purifier (not provided)
 
 ## swFormHelper::resetFormLabels
 
@@ -36,16 +36,24 @@ Inside a form :
 
     [php]
     swFormHelper::resetFormLabels(sfForm $this, array(
+      // define settings for the label
       'prefix'                  => 'label_',
       'catalogue'               => 'catalogue',
       'mandatory_format'        => "%s <sup>*</sup>",
 
+      // define setting for the error message
       'error_message_prefix'    => 'error_message_',
       'error_message_catalogue' => 'global_error_messages',
       'error_message_format'    => '<span class="error">%s</span>',
 
-      'update_validator_string' => true | false
-      'validator_string_class'  => 'swValidatorText'
+      // automatically escape input with the provided
+      // validator_string_class settings, default is false
+      'update_validator_string' => true | false,
+      'validator_string_class'  => 'swValidatorText',
+      'validator_options'       => array(
+        'option_1' => 'value_1',
+        'option_2' => 'value_2,
+      ),
     ));
 
 Some of the settings can be set globally in the app.yml
@@ -57,7 +65,10 @@ Some of the settings can be set globally in the app.yml
         form_error_message_prefix: "error_message_"
         form_error_message_catalogue: "error_messages"
         form_update_validator_string: on
-        validator_string_class: swValidatorText
+        form_validator_string_class: swValidatorText
+        form_validator_options:
+          option_1: value_1
+          option_2: value_2
 
 
 Sample with parameters defined in the app.yml file. This allow to easily reuse

@@ -80,7 +80,8 @@ class swFormHelper
 
     $options['update_validator_string'] = isset($options['update_validator_string']) ? $options['update_validator_string'] : sfConfig::get('app_swToolbox_form_update_validator_string', false);
     $options['validator_string_class']  = isset($options['validator_string_class']) ? $options['validator_string_class'] : sfConfig::get('app_swToolbox_form_validator_string_class', 'swValidatorText');
-    
+    $options['validator_options']       = isset($options['validator_options']) && is_array($options['validator_options']) ? $options['validator_options'] : sfConfig::get('app_swToolbox_form_validator_options', array());
+
     $form->setOption('_sw_reset_options', $options);
     
     // define translation (where the magic runs)
@@ -147,7 +148,7 @@ class swFormHelper
       {
         if( $validator_schema[$name] instanceof sfValidatorString)
         {
-          $secure_string_validator = new $options['validator_string_class'];
+          $secure_string_validator = new $options['validator_string_class']($options['validator_options']);
           $secure_validator        = new swValidatorSecureForm($secure_string_validator, $validator_schema[$name]);
 
           $validator_schema[$name] = $secure_validator;
