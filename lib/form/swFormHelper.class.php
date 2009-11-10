@@ -100,7 +100,7 @@ class swFormHelper
     return $options;
   }
   
-  static private function resetSchemaLabels(sfWidgetFormSchema $widget_schema, sfValidatorSchema $validator_schema, array $options)
+  static private function resetSchemaLabels(sfWidgetFormSchema $widget_schema, $validator_schema, array $options)
   {
     if($options['catalogue'] !== false)
     {
@@ -112,7 +112,7 @@ class swFormHelper
       $text_label = isset($options['force_labels'][$name]) ? $options['force_labels'][$name] : strtolower($options['prefix'].$name);
 
       // i18n label
-      if(isset($validator_schema[$name]) && $validator_schema[$name]->getOption('required'))
+      if($validator_schema instanceof sfValidatorSchema && isset($validator_schema[$name]) && $validator_schema[$name]->getOption('required'))
       {
         $label = new swFormLabel($text_label, $options['catalogue'], $options['mandatory_format'], true);
       }
@@ -122,9 +122,9 @@ class swFormHelper
       }
       
       $child_widget_schema->setLabel($label);
-
+      
       // i18n error messages
-      if($validator_schema[$name])
+      if($validator_schema instanceof sfValidatorSchema && $validator_schema[$name])
       {
         $messages = $validator_schema[$name]->getMessages();
         $validator_schema[$name]->setMessages(array());
@@ -144,7 +144,7 @@ class swFormHelper
       }
 
       // do we need to escape the string validator ?
-      if($options['update_validator_string'])
+      if($validator_schema instanceof sfValidatorSchema && $options['update_validator_string'])
       {
         if( $validator_schema[$name] instanceof sfValidatorString)
         {

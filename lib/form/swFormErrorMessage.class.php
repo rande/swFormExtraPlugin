@@ -26,13 +26,17 @@ class swFormErrorMessage extends swFormTranslableElement
     if (is_callable($callable) || ($callable instanceof sfCallable && $callable->getCallable()))
     {
 
-      return sprintf($this->format,
+      $message = sprintf($this->format,
         $callable instanceof sfCallable ?
         $callable->call($this->label, null, $this->catalogue) :
         call_user_func($callable, $this->label, null, $this->catalogue)
       );
     }
+    else
+    {
+      $message = sprintf($this->format, $this->label);
+    }
 
-    return sprintf($this->format, $this->label);
+    return $message === null ? "" : $message;
   }
 }
