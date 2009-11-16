@@ -81,7 +81,7 @@ class swFormHelper
     $options['update_validator_string'] = isset($options['update_validator_string']) ? $options['update_validator_string'] : sfConfig::get('app_swToolbox_form_update_validator_string', false);
     $options['validator_string_class']  = isset($options['validator_string_class']) ? $options['validator_string_class'] : sfConfig::get('app_swToolbox_form_validator_string_class', 'swValidatorText');
     $options['validator_options']       = isset($options['validator_options']) && is_array($options['validator_options']) ? $options['validator_options'] : sfConfig::get('app_swToolbox_form_validator_options', array());
-
+        
     $form->setOption('_sw_reset_options', $options);
     
     // define translation (where the magic runs)
@@ -126,20 +126,35 @@ class swFormHelper
       // i18n error messages
       if($validator_schema instanceof sfValidatorSchema && $validator_schema[$name])
       {
-        $messages = $validator_schema[$name]->getMessages();
+        if($validator_schema[$name]->hasOption('_sw_form_translated_messages'))
+        {
+          $messages = $validator_schema[$name]->getOption('_sw_form_translated_messages');
+          $_sw_form_translated_messages = $messages;
+        }
+        else
+        {
+          $messages = $validator_schema[$name]->getMessages();
+          $_sw_form_translated_messages = array();
+        }
+        
         $validator_schema[$name]->setMessages(array());
 
         foreach($messages as $error_code => $message)
         {
-          $form_error_message = $message;
-          
-          if(!is_object($message))
+          // keep original messages
+          if(!array_key_exists($error_code, $_sw_form_translated_messages))
           {
             $message = $options['error_message_prefix'].strtolower(str_replace(array(',', "\"", "(", ")", ' ', '.'), array('_', "",  "_","_",'_',''),$message));
-            $form_error_message = new swFormErrorMessage($message, $options['error_message_catalogue'], $options['error_message_format']);
+            $_sw_form_translated_messages[$error_code] = $message;
           }
-
+          
+          $form_error_message = new swFormErrorMessage($_sw_form_translated_messages[$error_code], $options['error_message_catalogue'], $options['error_message_format']);
           $validator_schema[$name]->addMessage($error_code, $form_error_message->__toString());
+        }
+        
+        if(!$validator_schema[$name]->hasOption('_sw_form_translated_messages'))
+        {
+          $validator_schema[$name]->addOption('_sw_form_translated_messages', $_sw_form_translated_messages);
         }
       }
 
