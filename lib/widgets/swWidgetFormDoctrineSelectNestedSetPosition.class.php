@@ -106,7 +106,7 @@ class swWidgetFormDoctrineSelectNestedSetPosition extends sfWidgetFormSelect
       throw new sfException('The object is not a Doctrine_Template_NestedSet');
     }
 
-    $root = Doctrine::getTable($this->getOption('model'))->getTree()->findRoot();
+    $root = Doctrine::getTable($this->getOption('model'))->getTree()->fetchRoot();
 
     if(!$root)
     {
