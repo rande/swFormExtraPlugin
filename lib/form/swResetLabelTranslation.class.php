@@ -58,7 +58,7 @@ class swResetLabelTranslation extends sfCallable
       return $subject->__toString();
     }
 
-    if(method_exists($subject, 'getCatalogue') && is_null($subject->getCatalogue()))
+    if(is_object($subject) && method_exists($subject, 'getCatalogue') && is_null($subject->getCatalogue()))
     {
       $catalogue = $subject->getCatalogue();
     }
