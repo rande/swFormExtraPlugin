@@ -100,7 +100,7 @@ EOF
    */
   public function getStylesheets()
   {
-    return array('/swFormExtraPlugin/js/autocompleter/jquery.autocompleter.css' => 'print');
+    return array('/swFormExtraPlugin/js/autocompleter/jquery.autocompleter.css' => 'screen');
   }
 
   /**
