@@ -46,6 +46,7 @@ class swValidatorBlackListWords extends sfValidatorString
       throw new sfValidatorError($this, 'black_listed_word', array('value' => $value));
     }
     
+    return $value;
   }
 
   public function getBlackListedWords()
