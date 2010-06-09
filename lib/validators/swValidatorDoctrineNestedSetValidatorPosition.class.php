@@ -84,7 +84,7 @@ class swValidatorDoctrineNestedSetPosition extends sfValidatorBase
     {
       if (!$object->exists())
       {
-        $root_node = Doctrine::getTable($this->getOption('model'))->getTree()->findRoot($object->getRootId());
+        $root_node = Doctrine::getTable($this->getOption('model'))->getTree()->fetchRoot($object->getRootId());
         if ($root_node)
         {
           throw new sfValidatorError($this, 'root node already exists', array('value' => $value));
