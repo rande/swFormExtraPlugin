@@ -1,0 +1,3 @@
+[submodule "lib/vendor/php-decoda"]
+	path = lib/vendor/php-decoda
+	url = http://github.com/milesj/php-decoda.git

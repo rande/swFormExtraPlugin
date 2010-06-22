@@ -454,7 +454,8 @@
 			}
 
 			function renderPreview() {				
-				if (options.previewParserPath !== '') {
+			  phtml = '';
+				if (options.previewParserPath !== '') {  			  
 					$.ajax( {
 						type: 'POST',
 						async: false,
