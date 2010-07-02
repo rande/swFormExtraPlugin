@@ -137,7 +137,7 @@ class swFormHelper
           $_sw_form_translated_messages = array();
         }
         
-        $validator_schema[$name]->setMessages(array());
+        $form_messages = array();
 
         foreach($messages as $error_code => $message)
         {
@@ -148,9 +148,11 @@ class swFormHelper
             $_sw_form_translated_messages[$error_code] = $message;
           }
           
-          $form_error_message = new swFormErrorMessage($_sw_form_translated_messages[$error_code], $options['error_message_catalogue'], $options['error_message_format']);
-          $validator_schema[$name]->addMessage($error_code, $form_error_message->__toString());
+          $form_error_message         = new swFormErrorMessage($_sw_form_translated_messages[$error_code], $options['error_message_catalogue'], $options['error_message_format']);
+          $form_messages[$error_code] =  $form_error_message->__toString();
         }
+        
+        $validator_schema[$name]->setMessages($form_messages);
         
         if(!$validator_schema[$name]->hasOption('_sw_form_translated_messages'))
         {
