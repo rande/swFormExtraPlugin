@@ -11,6 +11,7 @@
 * swWidgetFormRadio : represents one radio HTML tag
 * swWidgetFormTrilean : represents a select HTML tag : yes, no and null
 * swWidgetFormjQueryStarRating : a star rating widget
+* swWidgetFormUploadify : multiple uploads using flash from http://www.uploadify.com/
 
 ## Validators
 
@@ -23,6 +24,7 @@
 * swValidatorTrilean : validator for swWidgetFormTrilean input
 * swValidatorHtmlPurifier : clean html with HTML Purifier (not provided)
 * swValidatorBlackListWords : raise an exception if a field contains black listed words
+* swValidatorUploadify : validate files sent from the swWidgetFormUploadify widget
 
 ## swFormHelper::resetFormLabels
 

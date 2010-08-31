@@ -1,0 +1,3 @@
+uploadify:
+  # flash does not send browser cookies information ... 
+  is_secure: false

@@ -12,17 +12,22 @@ class swFormExtraRooting
 {
   public static function listenToRoutingLoadConfigurationEvent(sfEvent $event)
   {
-    $routing = $event->getSubject();
-
     if(!sfContext::hasInstance())
     {
 
       return;
     }
-    
-    $routing->appendRoute('sw_form_extra_bbcode_preview', new sfRoute('/sw-form-extra/bb-code-preview', array(
+
+    $routing = $event->getSubject();
+
+    $routing->prependRoute('sw_form_extra_bbcode_preview', new sfRoute('/sw-form-extra/bb-code-preview', array(
       'module' => 'swFormPreview',
       'action' => 'bbcodePreview',
+    )));
+
+    $routing->prependRoute('sw_form_extra_uploadify', new sfRoute('/sw-form-extra/uploadify/:token', array(
+      'module' => 'swFormPreview',
+      'action' => 'uploadify',
     )));
   }
 }
