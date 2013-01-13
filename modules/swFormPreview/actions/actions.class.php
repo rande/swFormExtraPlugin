@@ -51,8 +51,8 @@ class swFormPreviewActions extends sfActions
 
     $this->logMessage("Saving states file : ". json_encode($data));
     
-    file_put_contents($json_file, json_encode($data));
+    $written = file_put_contents($json_file, json_encode($data));
 
-    return sfView::NONE;
+    return $this->renderText($written);
   }
 }
